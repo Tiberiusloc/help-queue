@@ -1,29 +1,30 @@
 import React from "react";
-import NewTicketForm from "./NewTicketForm";
 import TicketList from "./TicketList";
+import DebugSteps from "./DebugSteps";
 
 class TicketControl extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      formVisibleOnPage: false
+      formVisibleOnPage: false,
     };
   }
 
   handleClick = () => {
     this.setState(prevState => ({
-      formVisibleOnPage: !prevState.formVisibleOnPage
+      formVisibleOnPage: !prevState.formVisibleOnPage,
     }));
   }
+
 
   render(){
     let currentlyVisibleState = null;
     let buttonText = null;
     if (this.state.formVisibleOnPage) {
-      currentlyVisibleState = <NewTicketForm />;
+      currentlyVisibleState = <DebugSteps />;
       buttonText = "Return to Ticket List";
-    } else {
+      } else {
       currentlyVisibleState = <TicketList />;
       buttonText = "Add Ticket";
     }
